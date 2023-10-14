@@ -1,40 +1,40 @@
 import java.util.Scanner;
 
 
-public class metodosGeometricos{
+public class GeometriaMetodos {
     public static Scanner lector = new Scanner(System.in);
-    public static int opc, intentos = 0, intentosMaximos = 3, intentosRestantes;
+    public static int opcion, intentos = 0, intentosMaximos = 3, intentosRestantes;
     public static boolean comparar, again = true;
             public static char Calagain;
     
             public static void mostrarmenu(){
+
                 System.out.println("Ingrese la figura geometrica a realizar: ");
 
                 System.out.println("Ingrese qué ejercicio desea que se ejecute: \n 1.Prisma \n 2.Cilindro \n 3.Pirámide \n 4.Cono \n 5.Esfera \n" +
                 " 6.Tronco de Cono \n 7.Tronco de Pirámide \n 8.Huso Esférico  \n 9. Cuña Esférica \n 10.Tetraedro \n 11.Hexaedro \n 12.Octaedro \n 13.Dodecaedro" +
-                " 14.Icosaedro \n 15.Ortoedro\n 16.Zona Esférica y Casquete Esférico");
-        opc = lector.nextInt();
+                " 14.Icosaedro \n 15.Ortoedro\n 16.Zona Esférica y Casquete Esférico \n 17.Cerrar programa ");
+        opcion = lector.nextInt();
          while (intentos < intentosMaximos) 
          {
 
-        if (opc >= 1 && opc <= 16) {
-            System.out.println("Ha seleccionado la opción " + opc);
+        if (opcion >= 1 && opcion <= 17) {
+            System.out.println("Ha seleccionado la opción " + opcion);
             break; 
         } else {
             intentos++;
             intentosRestantes = intentosMaximos - intentos;
             System.out.println("Ingreso inválido. Intentos restantes: " + intentosRestantes);
         }
-        opc = lector.nextInt();
+        opcion = lector.nextInt();
         if (intentos == intentosMaximos) {
         System.out.println("Intentos máximos alcanzados. Reinicie el programa.");
 
             }
-
-            
-        }
-        
+               
     }
+         
+}
     //Metodo sobrecargao
     public static void figura(double aL, double aT, double voL, double h,double aB, double pB, double apo , double lonLad, int canLad){
          
@@ -231,7 +231,7 @@ public class metodosGeometricos{
         voL = 4 * (double)(Math.PI *  Math.pow(r, 3)) / 3 ;
 
         System.out.println("Su area total es: " + aT);
-         System.out.println("Su volumen es: " + voL);
+        System.out.println("Su volumen es: " + voL);
 
         }
 
@@ -333,6 +333,10 @@ public class metodosGeometricos{
         areaTot= (areaLat + areaBM + areaBm);
         vol =(float)  (h/3 * (areaBM + areaBm) + (float)  (Math.sqrt(areaBM + areaBm)));
 
+        System.out.println("Su area lateral es: " + areaLat + " metros cuadrados.");
+        System.out.println("Su area total es de: " + areaTot + " metros cuadrados");
+        System.out.println("Su volumen es: " + vol + " metros cubicos");
+
         }
 
         public static void figura3(double area, double ngrados, double r){//8
@@ -358,6 +362,7 @@ public class metodosGeometricos{
             return;
         }
         area = (4 * Math.PI )* (Math.pow(r, 2) * ngrados)/ 360;
+
         System.out.println("El area total es: " + area + " cm. ");
 
         }
@@ -386,6 +391,7 @@ public class metodosGeometricos{
 
         vol= (float) (Math.PI * Math.pow(r, 3) * ngrados) / 270;
 
+        System.out.println("El valor de volumen es: " + vol);
         }
         
         public static void figura3(double arista, double h, double vertice, double aTotal){//10
@@ -403,6 +409,10 @@ public class metodosGeometricos{
         aTotal = Math.pow(arista, 2) * (Math.sqrt (3));
         vertice = (Math.sqrt(2) * (Math.pow(arista, 3)) /12);
         h= arista * (Math.sqrt(6))/3;
+
+        System.out.println("El area total es: " + aTotal);
+        System.out.println("El vertice es: " + vertice);
+        System.out.println("La altura es: " + h);
 
         }
 
@@ -423,6 +433,10 @@ public class metodosGeometricos{
         vol = Math.pow(arista, 3);
         diametro =arista * (Math.sqrt(3));
 
+        System.out.println("El area total es: " + aTotal);
+        System.out.println("El volumen d=total es: " + vol);
+        System.out.println("El diametro es de: " + diametro);
+        
         }
 
         
@@ -440,6 +454,9 @@ public class metodosGeometricos{
 
         aTotal = 2 * (Math.pow(arista,2)* (Math.sqrt(3)));
         vol = (Math.sqrt(2) * Math.pow(arista,3))/3;
+
+        System.out.println("El area total es: " + aTotal);
+        System.out.println("El volumen es de: " + vol);
         }
 
         public static void figura0(double arista, double vol, double aTotal){
@@ -456,6 +473,8 @@ public class metodosGeometricos{
         aTotal = (double)3 * (arista * arista) * (Math.sqrt(25 + 10) * Math.sqrt(5));
         vol = (double)(15 +  (7 *Math.sqrt(5))) * Math.pow(arista,3)/4;
 
+        System.out.println("El area Total es de: " + aTotal);
+        System.out.println("Su volumen es: " + vol);
         }
 
             public static void figura14(double arista, double vol, double aTotal){
@@ -472,7 +491,10 @@ public class metodosGeometricos{
         }
 
         aTotal = 5 * (Math.pow(arista,2))*(Math.sqrt(3));
-        vol = 5 * (3 + Math.sqrt(5) *Math.pow(arista, 3)/12) ;
+        vol = 5 * (3 + Math.sqrt(5) *Math.pow(arista, 3)/12);
+
+        System.out.println("El area total es de: " + aTotal);
+        System.out.println("Su volumen es: " + vol);
 
             }
 
@@ -516,6 +538,10 @@ public class metodosGeometricos{
                 diagonal = (Math.sqrt((a * a) + (b * b) + (c * c)));
                 vertice =  a * b *c;
 
+                System.out.println("El angulo total es de: " + angTot);
+                System.out.println("La diagonal tiene un valor de: " + diagonal);
+                System.out.println("El vertice es de: " + vertice);
+
             }
 
             public static void figura16(double  volZonaEsf,double areazonaEsf,double rmen,double h, double volCasEsf,double areaCasEsf,double rMay){
@@ -557,39 +583,60 @@ public class metodosGeometricos{
                 areaCasEsf = 2 * (Math.PI * (rMay * h));
                 volCasEsf = (Math.PI * (h * h) * (3 * rMay) - h)/3; 
 
+                System.out.println("El area de la zona esferica es: " + areazonaEsf);
+                System.out.println("El volumen de la zona esferica es: " + volZonaEsf);
+                System.out.println("El area del Casquete esferico es: " + areaCasEsf);
+                System.out.println("El volumen del Casquete esferico es: " + volCasEsf);
+
             }
 
 
-    public static void problems(){
+    public static boolean menuOpciones(int ejer){
+        boolean repeat = true;
 
-        mostrarmenu();
-
-        switch(opc){
-            case 1->{
-                figura(double aL, double aT, double voL, double h,double aB, double pB, double apo , double lonLad, int canLad);
-            break;
+        switch(ejer){
+            case 1:{
+                figura(ejer, ejer, ejer, ejer, ejer, ejer, ejer , ejer, ejer);
+                break;
             }
+        
 
+            case 17:{
+                repeat = false;
+                System.out.println("Programa cerrado. Que tenga buen dia mi estimad@.");
+                        
+                }
         }
 
         
+
+        return repeat;
         }
     
     public static void main(String[] args) {
 
-    while(again){
-            miCodigo();
-    
-         System.out.println("Dese volver a ejecutar el codigo?  (Si/No)");
-         Calagain = lector.next().charAt(0);
-
-         if(Calagain == 's'){
-            again = true;
-            }
-            else{
-                again = false;
-
-            }
+        
+        boolean run = true;
+        while (run){
+        mostrarmenu();
+        
+            run = menuOpciones(opcion);
         }
+        
+        
+
+
+    // while(again){
+    //         miCodigo();
+    
+    //      System.out.println("Dese volver a ejecutar el codigo?  (Si/No)");
+    //      Calagain = lector.next().charAt(0);
+
+    //      if(Calagain == 's'){
+    //         again = true;
+    //         }
+    //         else{
+    //             again = false;
+
+        }       
     }
-}
