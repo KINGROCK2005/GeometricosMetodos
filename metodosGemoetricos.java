@@ -36,9 +36,13 @@ public class GeometriaMetodos {
          
 }
     //Metodo sobrecargao
-    public static void figura(double aL, double aT, double voL, double h,double aB, double pB, double apo , double lonLad, int canLad){
-         
+    public static void figura(){//1
+        
+        double aL, aT,  voL,  h, aB, pB,  apo ,  lonLad;
+        int canLad;
+
         System.out.println("Ingrese la altura: ");
+        h = lector.nextByte();
         while (h <= 0 && intentos < 3) {
             intentos++;
             System.out.println("Digite la altura de nuevo");
@@ -49,6 +53,7 @@ public class GeometriaMetodos {
             return;
         }
         System.out.println("Ingrese la cantidad de lados: ");
+        canLad = lector.nextByte();
         while (canLad <= 0 && intentos < 3) {
             intentos++;
             System.out.println("Digite numeros positivos de nuevo");
@@ -59,6 +64,7 @@ public class GeometriaMetodos {
             return;
         }
         System.out.println("Ingrese la longitud de los lados: ");
+        lonLad = lector.nextByte();
         while (lonLad <= 0 && intentos < 3) {
             intentos++;
             System.out.println("Digite numeros positivos de nuevo");
@@ -83,9 +89,10 @@ public class GeometriaMetodos {
         System.out.println("Volumen: " + voL + " unidades cubicas.");
 
     }
-        public static void figura(double aL, double aT, double voL,double h ,double aB,double pB, double r){
+        public static void figura(double aL, double aT, double voL,double h ,double aB,double pB, double r){//2
             
             System.out.println("Ingrese la altura: ");
+            h = lector.nextByte();
             while (h <= 0 && intentos < 3) {
             intentos++;
             System.out.println("Digite la altura de nuevo");
@@ -96,6 +103,7 @@ public class GeometriaMetodos {
             return;
         }
         System.out.println("Ingrese el radio: ");
+        r = lector.nextByte();
         while (r <= 0 && intentos < 3) {
             intentos++;
             System.out.println("Digite el radio de nuevo");
@@ -106,22 +114,22 @@ public class GeometriaMetodos {
             return;
         }
 
-        aB= (  Math.PI * (r * r) );
+        aB= ( Math.PI * Math.pow(r, 2) );
         pB= ((2 * Math.PI) * r);
-        aL = pB * h;
-        aT = (aL * (2 * aB));
-        voL = aB * h;
-        System.out.println("Su area lateral es: " + aL);
+        aL = (pB * h);
+        aT = ((aB * 2) +( aL));//Ta mal cambiar formula
+        voL = (aB * h);
+        System.out.println("Su area lateral es: " + aL );
         System.out.println("Su area Total es: " + aT);
         System.out.println("Su volumen es: " + voL);
 
-        
 
         }
 
-        public static void figura(double aL, double aT, double voL, double h ,double aB,double pB, double r, int canLad, double lonLad, double apPir, double apo){
+        public static void figura(double aL, double aT, double voL, double h ,double aB,double pB, double r, double lonLad, double apPir, double apo, double p){//3
 
             System.out.println("Ingrese el radio: ");
+            r = lector.nextDouble();
             while (r <= 0 && intentos < 3) {
             intentos++;
             System.out.println("Digite el radio de nuevo");
@@ -132,6 +140,7 @@ public class GeometriaMetodos {
             return;
         }
         System.out.println("Ingrese la altura: ");
+        h = lector.nextDouble();
         while (h <= 0 && intentos < 3) {
             intentos++;
             System.out.println("Digite la altura de nuevo");
@@ -142,6 +151,7 @@ public class GeometriaMetodos {
             return;
         }
         System.out.println("Ingrese la longitud de los lados: ");
+        lonLad = lector.nextDouble();
         while (lonLad <= 0 && intentos < 3) {
             intentos++;
             System.out.println("Digite numeros positivos de nuevo");
@@ -151,21 +161,21 @@ public class GeometriaMetodos {
             System.out.println("Intentos maximos realizados. Intente luego");
             return;
         }
-        System.out.println("ingrese la cantidad de lados: ");
-        while (canLad <= 0 && intentos < 3) {
-            intentos++;
-            System.out.println("Digite numeros positivos de nuevo");
-            canLad = lector.nextInt();
+         System.out.println("ingrese el perimetro: ");
+         p = lector.nextInt();
+         while (p <= 0 && intentos < 3) {
+             intentos++;
+             System.out.println("Digite numeros positivos de nuevo");
+            p = lector.nextInt();
         }
-        if (intentos == 3) {
-            System.out.println("Intentos maximos realizados. Intente luego");
-            return;
-        }
+         if (intentos == 3) {
+             System.out.println("Intentos maximos realizados. Intente luego");
+             return;
+         }
 
-        double alfa = (Math.PI/180) * (360/canLad);
-        pB = ((2 * Math.PI) * r); 
-        aB= (Math.PI * (r * r));
-        apo = (lonLad / (2 * Math.tan(alfa)));
+        aB= (((2 * p) * r) /(2 ));
+        pB = ((2 * aB) / r); 
+        apo = (Math.sqrt(Math.pow(h, 2) + Math.pow(r, 2)));
         apPir = (h * h + (apo * apo));
         aL = pB * apPir / 2;
         aT= aL + aB;
@@ -178,9 +188,10 @@ public class GeometriaMetodos {
         }
 
 
-        public static void figura(double aL, double aT, double voL, double h ,double aB,double pB, double r, int canLad, double g){
+        public static void figura(double aL, double aT, double voL, double h ,double aB,double pB, double r, int canLad, double g){//4
 
             System.out.println("Ingrese la altura: ");
+             h = lector.nextDouble();
             while (h <= 0 && intentos < 3) {
             intentos++;
             System.out.println("Digite la altura de nuevo");
@@ -191,6 +202,7 @@ public class GeometriaMetodos {
             return;
         }
             System.out.println("Ingrese el radio: ");
+            r = lector.nextDouble();
             while (r <= 0 && intentos < 3) {
             intentos++;
             System.out.println("Digite el radio de nuevo");
@@ -217,6 +229,7 @@ public class GeometriaMetodos {
 
         public static void figura( double aT, double voL, double r){//5
             System.out.println("Ingrese el radio: ");
+            r = lector.nextDouble();
             while (r <= 0 && intentos < 3) {
             intentos++;
             System.out.println("Digite el radio de nuevo");
@@ -235,8 +248,10 @@ public class GeometriaMetodos {
 
         }
 
-        public static void figura2(double areaTot,double areaLat,double  areaBM, double rM, double rm,double h,double areaBm,double vol,double g){
+        public static void figura2(double areaTot,double areaLat,double  areaBM, double rM, double rm,double h,double areaBm,double vol,double g){//6
+
             System.out.println("Ingrese la altura: ");
+            h = lector.nextDouble();
             while (h <= 0 && intentos < 3) {
                 intentos++;
                 System.out.println("Digite la altura de nuevo");
@@ -247,6 +262,7 @@ public class GeometriaMetodos {
             return;
         }
         System.out.println("Ingrese el radio menor: ");
+        rm = lector.nextDouble();
         while (rm <= 0 && intentos < 3) {
                 intentos++;
                 System.out.println("Digite la altura de nuevo");
@@ -257,10 +273,11 @@ public class GeometriaMetodos {
             return;
         }
         System.out.println("Ingrese el radio Mayor: ");
-        while (rm <= 0 && intentos < 3) {
+         rM = lector.nextDouble();
+        while (rM <= 0 && intentos < 3) {
                 intentos++;
                 System.out.println("Digite la altura de nuevo");
-                rm = lector.nextDouble();
+                rM = lector.nextDouble();
             }
         if (intentos == 3) {
             System.out.println("Intentos maximos realizados. Intente luego");
@@ -279,8 +296,9 @@ public class GeometriaMetodos {
 
         }
 
-         public static void figura2(double areaTot,double areaLat, int canLad ,double  areaBM,double areaBm, double pBM, double pbm,double h,double aP,double vol,double g, double zx, double xz){
+         public static void figura2(double areaTot,double areaLat, int canLad ,double  areaBM,double areaBm, double pBM, double pbm,double h,double aP,double vol,double g, double zx, double xz){//7
             System.out.println("Ingrese la altura: ");
+            h = lector.nextDouble();
             while (h <= 0 && intentos < 3) {
                 intentos++;
                 System.out.println("Digite la altura de nuevo");
@@ -291,6 +309,7 @@ public class GeometriaMetodos {
             return;
         }
         System.out.println("Ingrese el area base mayor en mtrs cuadrados: ");
+        areaBM = lector.nextDouble();
         while (areaBM <= 0 && intentos < 3) {
                 intentos++;
                 System.out.println("Digite numeros positivos. Intente de nuevo");
@@ -301,6 +320,7 @@ public class GeometriaMetodos {
             return;
         }
         System.out.println("Ingrese el area base menor en mtrs cuadrados: ");
+        areaBm = lector.nextDouble();
         while (areaBm <= 0 && intentos < 3) {
                 intentos++;
                 System.out.println("Digite numeros positivos. Intente de nuevo");
@@ -312,6 +332,7 @@ public class GeometriaMetodos {
         }
 
         System.out.println("Ingrese la cantidad de lados: ");
+        canLad = lector.nextInt();
         while (canLad <= 0 && intentos < 3) {
                 intentos++;
                 System.out.println("Digite numeros positivos. Intente de nuevo");
@@ -342,6 +363,7 @@ public class GeometriaMetodos {
         public static void figura3(double area, double ngrados, double r){//8
 
             System.out.println("Ingrese el radio: ");
+            r = lector.nextDouble();
             while (r <= 0 && intentos < 3) {
             intentos++;
             System.out.println("Digite el radio de nuevo");
@@ -352,6 +374,7 @@ public class GeometriaMetodos {
             return;
         }
         System.out.println("Ingrese los grados: ");
+        ngrados = lector.nextDouble();
         while (ngrados <= 0 || ngrados >= 360 && intentos < 3) {
             intentos++;
             System.out.println("Ingreso invalido. Intente de nuevo");
@@ -367,7 +390,7 @@ public class GeometriaMetodos {
 
         }
 
-        public static void figura4( double ngrados, double r, double vol){
+        public static void figura4( double ngrados, double r, double vol){//9
             System.out.println("Ingrese el radio: ");
             while (r <= 0 && intentos < 3) {
             intentos++;
@@ -396,6 +419,7 @@ public class GeometriaMetodos {
         
         public static void figura3(double arista, double h, double vertice, double aTotal){//10
             System.out.println("Ingreese la arista: ");
+            arista = lector.nextDouble();       
             while (arista <= 0  && intentos < 3) {
             intentos++;
             System.out.println("Ingreso invalido. Intente de nuevo");
@@ -416,9 +440,10 @@ public class GeometriaMetodos {
 
         }
 
-        public static void figura4(double arista, double vol, double diametro, double aTotal){
+        public static void figura4(double arista, double vol, double diametro, double aTotal){//11
 
             System.out.println("Ingrese la arista: ");
+            arista = lector.nextDouble();
             while (arista <= 0  && intentos < 3) {
             intentos++;
             System.out.println("Ingreso invalido. Intente de nuevo");
@@ -440,8 +465,9 @@ public class GeometriaMetodos {
         }
 
         
-        public static void figura1(double arista, double vol, double aTotal){
+        public static void figura1(double arista, double vol, double aTotal){//12
             System.out.println("Ingrese la arista: ");
+            arista = lector.nextDouble();
             while (arista <= 0  && intentos < 3) {
             intentos++;
             System.out.println("Ingreso invalido. Intente de nuevo");
@@ -459,7 +485,10 @@ public class GeometriaMetodos {
         System.out.println("El volumen es de: " + vol);
         }
 
-        public static void figura0(double arista, double vol, double aTotal){
+        public static void figura0(double arista, double vol, double aTotal){//13
+
+            System.out.println("Ingrese la arista: ");
+            arista = lector.nextDouble();
             while (arista <= 0  && intentos < 3) {
             intentos++;
             System.out.println("Ingreso invalido. Intente de nuevo");
@@ -477,9 +506,10 @@ public class GeometriaMetodos {
         System.out.println("Su volumen es: " + vol);
         }
 
-            public static void figura14(double arista, double vol, double aTotal){
+            public static void figura14(double arista, double vol, double aTotal){//14
 
                 System.out.println("Ingrese la arista");
+                arista = lector.nextDouble();
                 while (arista <= 0  && intentos < 3) {
             intentos++;
             System.out.println("Ingreso invalido. Intente de nuevo");
@@ -499,9 +529,10 @@ public class GeometriaMetodos {
             }
 
             
-            public static void figura15(double diagonal, double vertice, double aTotal, double a, double b, double c, double angTot){
+            public static void figura15(double diagonal, double vertice, double aTotal, double a, double b, double c, double angTot){//15
 
                 System.out.println("Ingrese el lado mayor: ");
+                a = lector.nextDouble();
                  while (a <= 0  && intentos < 3) {
                     intentos++;
                     System.out.println("Ingreso invalido. Intente de nuevo");
@@ -513,6 +544,7 @@ public class GeometriaMetodos {
                 }
 
                 System.out.println("Ingrese el lado menor: ");
+                b = lector.nextDouble();
                 while (b <= 0  && intentos < 3) {
                     intentos++;
                     System.out.println("Ingreso invalido. Intente de nuevo");
@@ -524,6 +556,7 @@ public class GeometriaMetodos {
                 }
 
                 System.out.println("Ingresela altura de la cara");
+                     c = lector.nextDouble();   
                 while (c <= 0  && intentos < 3) {
                     intentos++;
                     System.out.println("Ingreso invalido. Intente de nuevo");
@@ -544,9 +577,10 @@ public class GeometriaMetodos {
 
             }
 
-            public static void figura16(double  volZonaEsf,double areazonaEsf,double rmen,double h, double volCasEsf,double areaCasEsf,double rMay){
+            public static void figura16(double  volZonaEsf,double areazonaEsf,double rmen,double h, double volCasEsf,double areaCasEsf,double rMay){//16
 
                 System.out.println("Ingrese el radio menor: ");
+                rmen = lector.nextDouble();
                 while (rmen <= 0  && intentos < 3) {
                     intentos++;
                     System.out.println("Ingreso invalido. Intente de nuevo");
@@ -557,6 +591,7 @@ public class GeometriaMetodos {
                     return;
                 }
                 System.out.println("Ingrese el radio mayor: ");
+                rMay = lector.nextDouble();
                 while (rMay <= 0  && intentos < 3) {
                     intentos++;
                     System.out.println("Ingreso invalido. Intente de nuevo");
@@ -568,6 +603,7 @@ public class GeometriaMetodos {
                 }
 
                 System.out.println("Ingrese la altura: ");
+                h = lector.nextDouble();
                 while (h <= 0  && intentos < 3) {
                     intentos++;
                     System.out.println("Ingreso invalido. Intente de nuevo");
@@ -596,10 +632,69 @@ public class GeometriaMetodos {
 
         switch(ejer){
             case 1:{
-                figura(ejer, ejer, ejer, ejer, ejer, ejer, ejer , ejer, ejer);
+                figura();
                 break;
             }
-        
+            case 2:{
+                figura(0, 0, 0, 0, 0, 0, 0);
+                break;
+            }
+            case 3:{
+                figura(0, 0, 0, 0 ,0, 0, 0, 0, 0, 0, 0);
+                break;
+            }
+            case 4:{
+                figura(0, 0, 0, 0,0,0, 0, 0,  0);
+                break;
+            }
+            case 5:{
+                figura( 0, 0, 0);
+                break;
+            }
+            case 6:{
+                figura2(0,0,0, 0, 0,0,0,0,0);
+                break;
+            }
+            case 7:{
+                 figura2(0,0, 0 ,0,0, 0, 0,0,0,0,0, 0, 0);
+                break;
+            }
+            case 8:{
+                figura3(0, 0, 0); 
+                break;
+            }
+            case 9:{
+                figura4( 0, 0, 0);
+                break;
+            }
+            case 10:{
+                figura3(0, 0, 0, 0);
+                break;
+            }
+            case 11:{
+                figura4(0, 0, 0, 0);
+                break;
+            }
+            case 12:{
+                figura1(0, 0, 0);
+                break;
+            }
+            case 13:{
+                figura0(0, 0, 0);
+                break;
+            }
+            case 14:{
+                figura14(0, 0, 0);
+                break;
+            }
+            case 15:{
+                figura15(0, 0, 0, 0, 0, 0, 0);
+                break;
+            }
+            case 16:{
+                figura16(0,0,0,0 ,0,0,0);
+                break;
+            }
 
             case 17:{
                 repeat = false;
